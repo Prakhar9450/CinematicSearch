@@ -78,12 +78,8 @@ export function MovieProvider({ children }) {
 
   // creat local storage
   const GetFavorite = () => {
-    try {
-      setLoader(false);
-      setHeader("Favorite Movies");
-    } catch (err) {
-      console.log(err);
-    }
+    setLoader(false);
+    setHeader("Favorite Movies");
   };
 
   //<========= firebase Google Authentication ========>
@@ -92,11 +88,11 @@ export function MovieProvider({ children }) {
   const GoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
-      toast.success("Login successfully");
       navigate("/");
-      // console.log(result.user)
+      toast.success("Login successfully");
     } catch (err) {
       console.log(err);
+      navigate("/");
     }
   };
   // <==========================================================>
