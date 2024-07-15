@@ -1,10 +1,12 @@
-# CinematicSearch
-
+<h1 align="center">CinematicSearch</h1>
 CinematicSearch is a React-based movie website that allows users to search for movies by title, sort them by genre, view trending and upcoming movies, and bookmark their favorite movies. The website is designed to be user-friendly and visually appealing.
+<hr/>
 
 ![background](https://github.com/user-attachments/assets/b41a671c-1ca5-4245-848a-54d2c114125e)
 
-# Features
+<hr/>
+
+# 🍿 Features
 
 - Search movies: users can search for movies by title
 - Genre-wise display: movies can be sorted by genre
@@ -14,7 +16,9 @@ CinematicSearch is a React-based movie website that allows users to search for m
 - Bookmark Movies: users can bookmark their favorite movies for later viewing
 - Google Authentication: users can sign in using their Google account
 
-# Technology
+<hr/>
+
+# 🍿 Technology
 
 CinematicSearch is built using the following technologies:
 
@@ -23,7 +27,9 @@ CinematicSearch is built using the following technologies:
 - Firebase Google Authentication: a service for authenticating users with Google accounts
 - Framer Motion: a React library for creating animations
 
-# How to Run the Website on Your System
+<hr/>
+
+# 🍿 How to Run the Website on Your System
 
 ## Step 1: Download and Extract the Code
 
@@ -31,20 +37,20 @@ CinematicSearch is built using the following technologies:
 
 Before starting the website, you will need to obtain the TMDB Movies API key and Firebase configuration. Follow these steps to obtain them and add them to your `.env` file.
 
-### Get TMDB API Key
+### ▶️ Get TMDB API Key
 
 - Go to https://www.themoviedb.org/ and log in.
 - Click on your user profile picture in the navigation bar, and select "Settings".
 - In the settings, select "API" and generate an API key.
 
-### Firebase Setup
+### ▶️ Firebase Setup
 
 Note that Firebase is only required for Google authentication. If you are not using Google authentication in your application, you can skip this step.
 
 - Go to the Firebase Console and create a new app.
 - After creating the app, build a web app by clicking "Add App" and following the instructions.
 
-![Firebase Add App Screenshot](https://user-images.githubusercontent.com/87109400/231569204-445d8007-fe75-4012-a21b-a71f4f4bc697.png)
+![Firebase Add App Screenshot](https://github.com/user-attachments/assets/61796893-f450-4aee-96a8-204d823e9df4)
 
 ![Firebase Build App Screenshot](https://user-images.githubusercontent.com/87109400/231568774-1ea09ada-34b8-4035-80d4-90ac79c1c8ed.png)
 
@@ -54,20 +60,27 @@ Note that Firebase is only required for Google authentication. If you are not us
 
 - Next, to activate Google authentication in Firebase, go to **Build > Authentication** and enable Google authentication.
 - To use Google authentication in localhost, add your localhost/127.0.0.1 as an Authorized Domain at **Build > Authentication > Settings > Authorized Domains** and add localhost or 127.0.0.1 to this section.
-- ![image](https://user-images.githubusercontent.com/87109400/231575419-ca703ebd-5380-45b6-8afe-33b9c1af778e.png)
+
+![image](https://github.com/user-attachments/assets/9b4006c2-c849-4b29-bd0f-4991db357908)
 
 ## Step 3: Run the Website
 
 Open your code editor (such as VS Code) and navigate to the project directory. Then, open a terminal and run the following command:
 
 ```bash
-npm start
+npm install
+```
+
+```bash
+npm run dev
 ```
 
 This will start the application. Open a web browser and navigate to http://localhost:3000 to access the website.
 
 Note: Ensure that you have carefully added the TMDB API key and Firebase authentication configuration to your .env file. If the .env file is not working, add all the API keys and configuration manually.
 
-# Demo
+<hr/>
+
+# 🍿 Demo
 
 - Check out our live demo at https://cinematicsearch.vercel.app/
