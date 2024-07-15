@@ -1,8 +1,8 @@
-# QuickFilmFinder
+# CinematicSearch
 
 Basic project to search for any movie
 
-# QuickFilmFinder
+# CinematicSearch
 
 # React + Vite
 

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import logo from "../assets/images/logo.jpeg";
+import logo from "../assets/images/logo.png";
 import { Link } from "react-router-dom";
 import Contextpage from "../Contextpage";
 import { motion } from "framer-motion";
@@ -37,7 +37,7 @@ function Navbar() {
             onClick={() => setActivemobile(!activemobile)}>
             <img src={logo} alt="logo" className="w-24 rounded-xl" />
             <h1 className="text-gray-400/70 font-bold text-2xl text-center">
-              QuickFilmFinder
+              CinematicSearch
             </h1>
           </Link>
         </motion.div>
