@@ -2,6 +2,8 @@
 
 CinematicSearch is a React-based movie website that allows users to search for movies by title, sort them by genre, view trending and upcoming movies, and bookmark their favorite movies. The website is designed to be user-friendly and visually appealing.
 
+![background](https://github.com/user-attachments/assets/b41a671c-1ca5-4245-848a-54d2c114125e)
+
 # Features
 
 - Search movies: users can search for movies by title
