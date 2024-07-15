@@ -1,14 +1,26 @@
 # CinematicSearch
 
-Basic project to search for any movie
+CinematicSearch is a React-based movie website that allows users to search for movies by title, sort them by genre, view trending and upcoming movies, and bookmark their favorite movies. The website is designed to be user-friendly and visually appealing.
 
-# CinematicSearch
+# Features
 
-# React + Vite
+- Search movies: users can search for movies by title
+- Genre-wise display: movies can be sorted by genre
+- Trending Movies: displays a section for trending movies
+- Upcoming movies: displays a section for upcoming movies
+- Movie Details: users can view detailed information about each movie
+- Bookmark Movies: users can bookmark their favorite movies for later viewing
+- Google Authentication: users can sign in using their Google account
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Technology
 
-Currently, two official plugins are available:
+CinematicSearch is built using the following technologies:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ReactJS: a popular JavaScript library for building user interfaces
+- TMDB API: an API that provides movie data
+- Firebase Google Authentication: a service for authenticating users with Google accounts
+- Framer Motion: a React library for creating animations
+
+# Demo
+
+- Check out our live demo at https://cinematicsearch.vercel.app/
