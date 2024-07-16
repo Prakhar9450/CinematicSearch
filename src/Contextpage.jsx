@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 //=== google firebase import start ===
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
@@ -11,7 +11,9 @@ const Contextpage = createContext();
 
 export function MovieProvider({ children }) {
   const [header, setHeader] = useState("Trending");
+  const [totalPage, setTotalPage] = useState(null);
   const [movies, setMovies] = useState([]);
+  const [searchedMovies, setSearchedMovies] = useState([]);
   const [trending, setTrending] = useState([]);
   const [upcoming, setUpcoming] = useState([]);
   const [page, setPage] = useState(1);
@@ -24,16 +26,19 @@ export function MovieProvider({ children }) {
 
   const APIKEY = import.meta.env.VITE_API_KEY;
 
-  if (page < 1) {
-    setPage(1);
-  }
+  useEffect(() => {
+    if (page < 1) {
+      setPage(1); // Increment page to 1 if it is less than 1.
+    }
+  }, [page]);
 
   const filteredGenre = async () => {
     const data = await fetch(
       `https://api.themoviedb.org/3/discover/movie?with_genres=${activegenre}&api_key=${APIKEY}&with_origin_country=IN&page=${page}`
     );
-    const movies = await data.json();
-    setMovies(movies.results);
+    const filteredGenre = await data.json();
+    setMovies(movies.concat(filteredGenre.results)); // Concat new movies with previous movies, on genre change movies are reset to [] so that only movies of new genre will appear, check out useEffect on top for more information.
+    setTotalPage(filteredGenre.total_pages);
     setLoader(false);
     setHeader("Genres");
   };
@@ -43,7 +48,7 @@ export function MovieProvider({ children }) {
       `https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&with_origin_country=IN&language=en-US&query=${query}&page=1&include_adult=false`
     );
     const searchmovies = await data.json();
-    setMovies(searchmovies.results);
+    setSearchedMovies(searchmovies.results);
     setLoader(false);
     setHeader(`Results for "${query}"`);
   };
@@ -58,10 +63,11 @@ export function MovieProvider({ children }) {
 
   const fetchTrending = async () => {
     const data = await fetch(
-      `https://api.themoviedb.org/3/trending/all/day?api_key=${APIKEY}&with_origin_country=IN&page=${page}`
+      `https://api.themoviedb.org/3/trending/movie/day?api_key=${APIKEY}&with_origin_country=IN&page=${page}`
     );
     const trend = await data.json();
-    setTrending(trend.results);
+    setTrending(trending.concat(trend.results));
+    setTotalPage(trend.total_pages);
     setLoader(false);
     setHeader("Trending Movies");
   };
@@ -71,7 +77,8 @@ export function MovieProvider({ children }) {
       `https://api.themoviedb.org/3/movie/upcoming?api_key=${APIKEY}&with_origin_country=IN&language=en-US&page=${page}`
     );
     const upc = await data.json();
-    setUpcoming(upc.results);
+    setUpcoming(upcoming.concat(upc.results));
+    setTotalPage(upc.total_pages);
     setLoader(false);
     setHeader("Upcoming Movies");
   };
@@ -122,7 +129,8 @@ export function MovieProvider({ children }) {
         fetchUpcoming,
         upcoming,
         GetFavorite,
-
+        totalPage,
+        searchedMovies,
         GoogleLogin,
         user,
       }}>

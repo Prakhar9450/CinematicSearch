@@ -54,17 +54,17 @@ function Moviecard({ movie }) {
           {movie.title || movie.name}
         </h1>
 
-        {movie.vote_average > 7 ? (
+        {(movie.vote_average || 0) > 7 ? (
           <h1 className="font-bold text-green-500 p-2 bg-zinc-900 rounded-full">
-            {movie.vote_average.toFixed(1)}
+            {(movie.vote_average || 0).toFixed(1)}
           </h1>
-        ) : movie.vote_average > 5.5 ? (
+        ) : (movie.vote_average || 0) > 5.5 ? (
           <h1 className="font-bold text-orange-400 p-2 bg-zinc-900 rounded-full">
-            {movie.vote_average.toFixed(1)}
+            {(movie.vote_average || 0).toFixed(1)}
           </h1>
         ) : (
           <h1 className="font-bold text-red-600 p-2 bg-zinc-900 rounded-full">
-            {movie.vote_average.toFixed(1)}
+            {(movie.vote_average || 0).toFixed(1)}
           </h1>
         )}
       </div>
