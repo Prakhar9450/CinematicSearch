@@ -8,7 +8,7 @@ CinematicSearch is a React-based movie website that allows users to search for m
 
 # 🍿 Features
 
-- Search movies: users can search for movies by title
+- Search and watch movies: users can search for movies by title and can watch them easily
 - Genre-wise display: movies can be sorted by genre
 - Trending Movies: displays a section for trending movies
 - Upcoming movies: displays a section for upcoming movies
@@ -84,3 +84,7 @@ Note: Ensure that you have carefully added the TMDB API key and Firebase authent
 # 🍿 Demo
 
 - Check out our live demo at https://cinematicsearch.vercel.app/
+
+# 😍 Contribution
+
+Contributions are always welcome, open a **Pull Request** and help us improve our project.
