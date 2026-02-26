@@ -12,6 +12,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Player from "./pages/Player";
 import Search from "./pages/Search";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import { Helmet } from "react-helmet";
 import logo from "./assets/images/logo.png";
 
@@ -47,6 +49,8 @@ function App() {
           {/*Route-1 For Player, Title is just for beauty of url, it is not used anywhere.*/}
           <Route path="/player/:id" element={<Player />} />{" "}
           {/*Route-2 For Player. Movie still available even if someone removes Title from end of the url.*/}
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/search/:query" element={<Container />} />
           <Route path="/search/" element={<Container />} />
         </Routes>

@@ -38,6 +38,12 @@ function Navbar() {
       Name: "Favorites",
       link: "/favorite",
     },
+    {
+      id: 5,
+      headername: "Blog",
+      Name: "Blog",
+      link: "/blog",
+    },
   ];
 
   return (
