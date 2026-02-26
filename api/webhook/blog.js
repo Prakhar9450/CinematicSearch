@@ -32,14 +32,15 @@ export default async function handler(req, res) {
         externalId: data.id,
         title: data.title,
         slug: data.slug,
-        description: data.description,
         contentHtml: data.content_html,
+        contentMarkdown: data.content_markdown || "",
+        metaDescription: data.meta_description || null,
         imageUrl: data.image_url || null,
         tags: data.tags || [],
-        publishedAt: data.published_at
-          ? new Date(data.published_at)
+        publishedAt: data.created_at
+          ? new Date(data.created_at)
           : new Date(),
-        updatedAt: new Date(),
+        createdAt: new Date(),
       });
 
       return res.status(200).json({
