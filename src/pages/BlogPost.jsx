@@ -118,6 +118,14 @@ function BlogPost() {
           className="blog-prose"
           dangerouslySetInnerHTML={{ __html: post.contentHtml }}
         />
+
+        {post.contentImageUrl && (
+          <img
+            src={post.contentImageUrl}
+            alt={post.title}
+            className="w-full rounded-xl mt-8"
+          />
+        )}
       </motion.article>
     </>
   );
