@@ -41,6 +41,14 @@ function BlogPost() {
     fetchPost();
   }, [slug]);
 
+  const splitHtmlAtMidpoint = (html) => {
+    const mid = Math.floor(html.length / 2);
+    const splitIndex = html.indexOf("</p>", mid);
+    if (splitIndex === -1) return [html, ""];
+    const cut = splitIndex + "</p>".length;
+    return [html.slice(0, cut), html.slice(cut)];
+  };
+
   const formatDate = (timestamp) => {
     if (!timestamp) return "";
     const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
@@ -114,16 +122,25 @@ function BlogPost() {
           />
         )}
 
-        <div
-          className="blog-prose"
-          dangerouslySetInnerHTML={{ __html: post.contentHtml }}
-        />
-
-        {post.contentImageUrl && (
-          <img
-            src={post.contentImageUrl}
-            alt={post.title}
-            className="w-full rounded-xl mt-8"
+        {post.contentImageUrl ? (
+          (() => {
+            const [firstHalf, secondHalf] = splitHtmlAtMidpoint(post.contentHtml);
+            return (
+              <>
+                <div className="blog-prose" dangerouslySetInnerHTML={{ __html: firstHalf }} />
+                <img
+                  src={post.contentImageUrl}
+                  alt={post.title}
+                  className="w-full rounded-xl my-8"
+                />
+                <div className="blog-prose" dangerouslySetInnerHTML={{ __html: secondHalf }} />
+              </>
+            );
+          })()
+        ) : (
+          <div
+            className="blog-prose"
+            dangerouslySetInnerHTML={{ __html: post.contentHtml }}
           />
         )}
       </motion.article>
