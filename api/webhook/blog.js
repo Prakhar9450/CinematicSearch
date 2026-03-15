@@ -36,7 +36,6 @@ export default async function handler(req, res) {
         contentMarkdown: data.content_markdown || "",
         metaDescription: data.meta_description || null,
         featuredImageUrl: data.featured_image_url || null,
-        contentImageUrl: data.content_image_url || null,
         tags: data.tags || [],
         publishedAt: data.created_at
           ? new Date(data.created_at)
