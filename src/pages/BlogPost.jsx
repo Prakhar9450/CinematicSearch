@@ -106,9 +106,9 @@ function BlogPost() {
           ))}
         </div>
 
-        {post.imageUrl && (
+        {post.featuredImageUrl && (
           <img
-            src={post.imageUrl}
+            src={post.featuredImageUrl}
             alt={post.title}
             className="w-full rounded-xl mb-8"
           />

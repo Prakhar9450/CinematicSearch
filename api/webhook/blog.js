@@ -35,7 +35,8 @@ export default async function handler(req, res) {
         contentHtml: data.content_html,
         contentMarkdown: data.content_markdown || "",
         metaDescription: data.meta_description || null,
-        imageUrl: data.image_url || null,
+        featuredImageUrl: data.featured_image_url || null,
+        contentImageUrl: data.content_image_url || null,
         tags: data.tags || [],
         publishedAt: data.created_at
           ? new Date(data.created_at)
@@ -43,9 +44,10 @@ export default async function handler(req, res) {
         createdAt: new Date(),
       });
 
+      const siteUrl = process.env.SITE_URL || "https://cinematic-search.vercel.app";
       return res.status(200).json({
-        external_id: data.id,
-        external_url: `/blog/${data.slug}`,
+        id: data.id,
+        url: `${siteUrl}/blog/${data.slug}`,
       });
     } catch (error) {
       console.error("Error writing blog post:", error);

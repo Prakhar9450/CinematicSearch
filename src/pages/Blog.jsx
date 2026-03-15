@@ -134,9 +134,9 @@ function Blog() {
                   transition={{ delay: index * 0.05 }}>
                   <Link to={`/blog/${post.slug}`}>
                     <div className="bg-[#161d2f] rounded-xl border border-gray-800 overflow-hidden hover:scale-[1.02] hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-                      {post.imageUrl ? (
+                      {post.featuredImageUrl ? (
                         <img
-                          src={post.imageUrl}
+                          src={post.featuredImageUrl}
                           alt={post.title}
                           className="w-full h-48 object-cover"
                         />
@@ -154,9 +154,9 @@ function Blog() {
                           {post.title}
                         </h2>
 
-                        {post.description && (
+                        {post.metaDescription && (
                           <p className="text-sm text-gray-400 line-clamp-3 mt-2">
-                            {post.description}
+                            {post.metaDescription}
                           </p>
                         )}
 
